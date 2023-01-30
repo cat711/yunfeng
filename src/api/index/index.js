@@ -26,7 +26,7 @@ reg.onclick = function () {
     return 0;
   }
   axios({
-    url: "cbfg39x7.shenzhuo.vip:46777/first/test",
+    url: "",
     method: "POST",
     data: {
       password: `${password}`,
