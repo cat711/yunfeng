@@ -26,7 +26,6 @@ reg.onclick = function () {
     return 0;
   }
   axios({
-    
     method: "POST",
     data: {
       password: `${password}`,
