@@ -7,12 +7,12 @@
 
 python-web 
 
-####文件夹含义
+#### 文件夹含义
 
-docs是文本文件及一些想法
-public是公共图片及一些图标
-src是前端文件夹，内含api（接口文件），components（可复用文件），view（网页主体）
-提交待续ing....
+- docs是文本文件及一些想法
+- public是公共图片及一些图标
+- src是前端文件夹，内含api（接口文件），components（可复用文件），view（网页主体）
+- 提交待续ing....
 
 
 
