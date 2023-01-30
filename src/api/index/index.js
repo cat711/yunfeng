@@ -15,6 +15,7 @@ setInterval(function () {
 }, 1000);
 
 reg.onclick = function () {
+  console.log('11111')
   var acn = document.getElementById("acn").value;
   var password = document.getElementById("password").value;
   if (!acn) {
@@ -26,11 +27,11 @@ reg.onclick = function () {
     return 0;
   }
   axios({
-    url: "127.0.0.1:8000/first/test",
+    url: "https://yunfeng.shenzhuo.vip/first/test",
     method: "POST",
     data: {
-      password: `${password}`,
-      username: `${acn}`,
+      pw: `${password}`,
+      id: `${acn}`,
     },
   }).then(function (ist) {
     // JSON.stringify(ist.data);
