@@ -33,6 +33,9 @@ reg.onclick = function () {
       pw: `${password}`,
       id: `${acn}`,
     },
+    heads: {
+      "content-type": "application/x-www-form-urlencoded",
+    },
   }).then(function (ist) {
     // JSON.stringify(ist.data);
     console.log("登录报文", ist.data.data.user_id);

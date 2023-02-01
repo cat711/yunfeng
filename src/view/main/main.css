@@ -1,0 +1,123 @@
+#top {
+  width: 1920px;
+  height: 100px;
+  background-color: #d9d9d9;
+  position: relative;
+}
+.LogoClass1 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  background-color: aqua;
+  top: 10px;
+  left: 25%;
+  text-align: center;
+  line-height: 4;
+  transition-duration: 0.5s;
+}
+.LogoClass1:hover {
+  transform: translateY(-5px);
+  transform: scale(1.2);
+}
+body {
+  margin: 0;
+}
+main {
+  position: relative;
+  display: flex;
+  width: 1920px;
+  height: 834px;
+  background-color: rgb(49, 188, 77);
+}
+
+.text {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  width: 500px;
+  height: 200px;
+  background-color: rgb(126, 116, 116, 0);
+  text-align: center;
+  font-size: 50px;
+  color: coral;
+  z-index: 100;
+  transition-duration: 0.5s;
+}
+.text:hover {
+  transform: scale(1.25);
+}
+.Enter {
+  position: absolute;
+  right: 200px;
+  width: 30%;
+  height: 700px;
+  background-color: rgb(225, 194, 153, 0.7);
+}
+.Acn {
+  height: 40px;
+  width: 350px;
+  position: absolute;
+  top: 200px;
+  font-size: 24px;
+  left: 20%;
+  background-color: whitesmoke;
+  z-index: 100;
+}
+.Acn.password {
+  top: 320px;
+}
+.welcome {
+  width: 400px;
+  position: absolute;
+  top: 50px;
+  left: 80px;
+  font-size: 40px;
+  text-align: center;
+  z-index: 100;
+  transition-duration: 0.5s;
+}
+.welcome:hover {
+  transform: translateY(-25px);
+  font-size: 45px;
+}
+#user {
+  position: absolute;
+  left: 33%;
+  top: 60%;
+  background-color: rgb(240, 236, 236, 0.9);
+  width: 200px;
+  height: 60px;
+  /* border: solid 2px black; */
+  font-size: 24px;
+  text-align: center;
+  color: yellowgreen;
+  line-height: 2.5;
+  z-index: 100;
+  transition-duration: 0.5s;
+}
+#user:hover {
+  color: white;
+  background-color: yellowgreen;
+  transform: scale(0.75);
+}
+#user.register {
+  height: 40px;
+  width: 75px;
+  line-height: 1.5;
+  font-size: 20px;
+  top: 70%;
+  z-index: 100;
+}
+#user.register:hover {
+  background-color: black;
+  transform: scale(0.8);
+}
+#user.admin {
+  width: 100px;
+  height: 60px;
+  top: 93%;
+  left: 82%;
+  font-size: 18px;
+  color: black;
+  background-color: rgb(239, 232, 232, 0);
+}
