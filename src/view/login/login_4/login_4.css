@@ -34,7 +34,7 @@ body {
   text-decoration: none;
 }
 .nav.first {
-  width:6%;
+  width: 6%;
   left: 60%;
 }
 .nav.second {
@@ -47,8 +47,8 @@ body {
 .choice {
   position: relative;
   top: 50px;
-  left: 60%;
-  width:6%;
+  left: 70%;
+  width: 4.5%;
   height: 5px;
   background-color: #5f95d4;
 }
@@ -57,7 +57,7 @@ body {
   top: 0px;
   background-color: #b3b3b3;
   width: 100%;
-  height: 400px;
+  height: 350px;
 }
 .chartBack {
   position: relative;
@@ -66,49 +66,32 @@ body {
   /* height: 700px; */
   background-color: #d9d9d9;
 }
-.charts {
-  position: relative;
-  top: 0px;
-  left: 34%;
-  width: 600px;
-  /* height: 700px; */
-  background-color: #6e6d6d;
-  border-radius: 40px;
-}
-/* .chartTitle {
-  position: absolute;
-  top: 0px;
-  left: 25px;
-  font-size: 36px;
-  text-align: center;
-  width: 100%;
-  height: 24px;
-  color: rgb(155, 14, 14);
-} */
-.userList {
-  position: relative;
-  height: auto;
-  top: 0px;
-  left: 20px;
-}
-#userList {
-  position: relative;
-  top: 0px;
-  left: 70px;
-  font-size: 26px;
-  color: black;
-  line-height: 2;
-  margin: 0px;
-}
-/* .frequency {
-  position: absolute;
-  top: 50px;
-  left: 250px;
-}
-#frequencyList{
+.titlebox{
+    position: relative;
+    height: 50px;
+    width: 30%;
+    top: 0px;
+    left: 15%;
     font-size: 26px;
-    color: white;
-} */
+    background-color: rgba(0, 0, 0, 0);
+}
+.title{
+    position: relative;
+}
+.histogram{
+position: relative;
+top: 0px;
+left: 20%;
+background-color: aquamarine;
+width: 25%;
+height: 400px;
+margin-right: 0px;
+display:inline-block;
+
+}
+.histogram.line{
+    left: 30%;
+}
 .bottom {
   position: relative;
   top: 100%;
@@ -118,7 +101,4 @@ body {
   text-align: center;
   font-size: 28px;
   /* z-index: 100; */
-}
-img {
-  vertical-align: bottom;
 }
