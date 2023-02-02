@@ -1,8 +1,6 @@
 from django.shortcuts import HttpResponse, render
-from firstapp.models import UserInfo
-from firstapp import models
+from firstapp.models import UserInfo,YunDingInfo
 from django import forms
-from django.core.exceptions import ValidationError
 from django.contrib import messages
 
 # 邀请码
@@ -50,12 +48,23 @@ def register(request):
             password = form.cleaned_data.get('password')
             confirm_password = form.cleaned_data.get('confirm_password')
 
+
+            """
+            判断是否在云顶书院
+            测试时将其注释掉
+            """
+            if not YunDingInfo.objects.filter(id=user_id, user_name=user_name).first():
+                messages.error(request, '你未在云顶书院！')
+
+
+
             # 判断邀请码是否正确
             if invitation_code != CODE:
                 messages.error(request, '邀请码错误！')
                 return render(request, 'register.html', context={'form': form})
 
             # 判断学号ID是否重复
+                return render(request, 'register.html', context={'form': form})
             if UserInfo.objects.filter(id=user_id).first():
                 messages.error(request, '学号重复！')
                 return render(request, 'register.html', context={'form': form})
@@ -63,7 +72,7 @@ def register(request):
                 messages.error(request, '学号为10位数字！')
                 return render(request, 'register.html', context={'form': form})
 
-            models.UserInfo.objects.create(id=user_id, user_name=user_name, phase_num=phase_num, direction=direction,
+            UserInfo.objects.create(id=user_id, user_name=user_name, phase_num=phase_num, direction=direction,
                                            password=password)
             return render(request, 'index.html')
         else:
