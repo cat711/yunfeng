@@ -2,6 +2,7 @@
     //创建时间；2023-1-29  
     //该页面是云顶请假界面的主页面
     //第一次修改；李建霆  2023-2-1  完善并并调整内容
+    //第二次修改：李建霆  2023-2-2  完善js内容
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>云顶请假系统</title>
     <link href="main.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body style="overflow-x: hidden">
     <!-- <header id="top">
@@ -34,13 +36,13 @@
           class="img_2"
         />
       </div>
-      <div class="Enter">
+      <div id="pass" class="Enter">
         <div class="welcome">云顶请假系统</div>
-        <input type="text" class="Acn" placeholder="账号：" />
-        <input type="password" class="Acn password" placeholder="密码：" />
+        <input type="text" id="acn" class="Acn" placeholder="账号：" />
+        <input type="password" id="PASS" placeholder="密码：" />
         <div id="user">登录</div>
-        <div id="user" class="admin register">注册</div>
-        <div class="admin" id="user">管理员通道</div>
+        <a id="user" class="admin register" href="">注册</a>
+        <a class="admin" id="user">管理员通道</a>
       </div>
     </main>
     <script src="demo.js"></script>

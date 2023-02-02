@@ -1,5 +1,4 @@
-const uesrList = document.getElementById("userList");
-const frequencyList = document.getElementById("frequencyList");
+const userList = document.getElementById("userList");
 
 var testdata = "测试名字:xxx &nbsp &nbsp &nbsp 测试次数:5次";
 var testdata2 = "测试次数:5次";
@@ -7,9 +6,9 @@ var testdata2 = "测试次数:5次";
 //打印排行榜
 for (let i = 0; i < 10; i++) {
   var li = document.createElement("li");
-  var btn = document.createElement("button");
-  uesrList.appendChild(li);
-  uesrList.children[uesrList.children.length - 1].innerHTML = `${testdata}`;
+
+  userList.appendChild(li);
+  userList.children[userList.children.length - 1].innerHTML = `${testdata}`;
 }
 
 //获取今天时间并算出周一到周日的时间并转为2023-1-31格式
@@ -42,3 +41,24 @@ function format(shijianchuo) {
 }
 console.log(format(monday));
 console.log(format(sunday));
+
+axios({
+  url: "",
+  method: "POST",
+  data: {
+    monday: `${monday}`,
+    sunday: `${sunday}`,
+  },
+});
+
+axios({
+  url: "",
+  method: "GET",
+}).then(function (List) {
+  for (var i = 0; i < List.data.data.records.length; i++) {
+    var li = document.createElement("li");
+    userList.appendChild(li);
+    userList.children[userist.children.length - 1].innerHTML =
+      List.data.data.records[i];
+  }
+});

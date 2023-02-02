@@ -3,7 +3,6 @@
   height: 75px;
   background-color: #d9d9d9;
   position: relative;
-  
 }
 .LogoClass1 {
   width: 50px;
@@ -34,7 +33,7 @@ body {
   text-decoration: none;
 }
 .nav.first {
-  width:6%;
+  width: 6%;
   left: 60%;
 }
 .nav.second {
@@ -48,7 +47,7 @@ body {
   position: relative;
   top: 50px;
   left: 60%;
-  width:6%;
+  width: 3.5%;
   height: 5px;
   background-color: #5f95d4;
 }
