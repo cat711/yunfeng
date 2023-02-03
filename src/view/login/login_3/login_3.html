@@ -1,0 +1,41 @@
+<!-- 创建人：李建霆
+     创建时间：2023-1-31
+     本页面是 管理端的周次请假次数排行榜 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>云顶请假系统管理端</title>
+    <link href="login_3.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body style="overflow-x: hidden">
+    <!-- 页面头部 -->
+    <header id="top">
+      <div class="LogoClass1">LOGO</div>
+      <a class="nav" href="">主页</a>
+      <a class="nav first" href="">本周汇总</a>
+      <div class="choice"></div>
+      <a class="nav second" href="../login_4/login_4.html">数据可视化</a>
+      <a class="nav third" href="">设置</a>
+    </header>
+    <!-- 页面图片 -->
+    <div class="image"></div>
+    <!-- 排行榜 -->
+    <div class="chartBack">
+      <!-- <div class="chartTitle"></div> -->
+      <div class="charts">
+        <div class="userList">
+          <ol id="userList">
+            &nbsp&nbsp&nbsp&nbsp&nbsp本周请假次数排行榜:
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- 页尾 -->
+    <div class="bottom">底部</div>
+    <script src="login_3.js"></script>
+  </body>
+</html>
