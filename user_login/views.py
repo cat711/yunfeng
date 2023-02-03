@@ -1,7 +1,7 @@
 from django.shortcuts import render,HttpResponse
 from django import forms
 from yunfeng.utils.encrypt import md5
-from login.models import UserInfo
+from user_login.models import UserInfo
 
 def orm(request):
     # 新建数据，用于测试
@@ -18,17 +18,17 @@ class LoginForm(forms.Form):
     #     pwd = self.cleaned_data.get('password')
     #     return md5(pwd)
 
-def login(request):
+def user_login(request):
     if request.method =='GET':
         form = LoginForm()
-        return render(request,'login.html',{'form':form})
+        return render(request,'user_login.html',{'form':form})
     form = LoginForm(data=request.POST)
     if form.is_valid():
         user_object = UserInfo.objects.filter(**form.cleaned_data).first()
         if not user_object:
             form.add_error("password", "用户名或密码错误")
-            return render(request, 'login.html', {"form": form})
+            return render(request, 'user_login.html', {"form": form})
         return HttpResponse("登陆成功")
         request.session["info"] = {'id': user_object.id}
         #return redirect(请假网页)
-    return render(request,'login.html',{'form':form})
+    return render(request,'user_login.html',{'form':form})

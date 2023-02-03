@@ -16,14 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from login import views
+from user_login import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
 
-    path('login/',views.login),
+    path('user_login/',views.user_login),
     path('orm/', views.orm),
 
 ]
