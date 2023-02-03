@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os.path
 from pathlib import Path
 import corsheaders
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -35,7 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders'
+    'corsheaders',
+    'firstapp',
+    'leave',
+    'adjust',
+    'ranking',
 ]
 
 MIDDLEWARE = [
@@ -73,7 +78,7 @@ WSGI_APPLICATION = 'yunfeng.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
+# 数据库
 DATABASES = {
 
     'default': {
@@ -127,30 +132,53 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 跨域增加忽略
-CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = ()
-CORS_ALLOW_METHODS = (
-    'DELETE',
+# 允许所有 域名/IP 跨域
+CORS_ALLOW_ALL_ORIGINS = True
+# 配置可跨域访问的 域名/IP
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:8000',
+    'http://localhost:63342',
+]
+# 使用正则表达式匹配允许访问的 域名/IP
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.example\.com$",
+]
+# 配置允许的请求方式
+CORS_ALLOW_METHODS = [
+    '*',  # * 表示允许全部请求头
     'GET',
-    'OPTIONS',
-    'PATCH',
     'POST',
     'PUT',
-    'VIEW',
-)
+    'PATCH',
+    'DELETE',
+    'OPTIONS'
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+# 改为True即为可跨域设置Cookie
+CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_HEADERS = (
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-    'token'
-)
+# 以下内容均在 setting.py 配置
 
-CORS_ORIGIN_ALLOW_ALL = True
+# 将session属性设置为 secure
+SESSION_COOKIE_SECURE = True
+
+# 设置set_cookie的samesite属性
+SESSION_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_SAMESITE = 'Strict'
+# 配置Django项目中哪些URL使用CORS进行跨域
+# 默认为 r'^.*$'，即匹配所有 URL
+
+# 以下案例为 /api/*** 均可进行跨域访问
+CORS_URLS_REGEX = r"^/api/.*$"
+
