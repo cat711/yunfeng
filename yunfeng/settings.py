@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'firstapp',
     'leave',
+    'adjust',
+    'ranking',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'yunfeng.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-#数据库
+# 数据库
 DATABASES = {
 
     'default': {
