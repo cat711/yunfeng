@@ -1,14 +1,22 @@
 from django.shortcuts import render,HttpResponse
 from django import forms
 from yunfeng.utils.encrypt import md5
-from firstapp.models import UserInfo
+from login.models import UserInfo
+
+def orm(request):
+    # 新建数据，用于测试
+    UserInfo.objects.create(user_name="yyq", password="123", id=2022002200,phase_num='七期',direction='AI')
+    UserInfo.objects.create(user_name="roker", password="456",id=2022546222,phase_num='七期',direction='AI')
+
+    return HttpResponse("成功")
+
 class LoginForm(forms.Form):
     id = forms.IntegerField(label='学号',widget=forms.TextInput,required=True)
     password = forms.CharField(label='密码',widget=forms.PasswordInput,required=True)
 
-    def clean_password(self):
-        pwd = self.cleaned_data.get('password')
-        return md5(pwd)
+    # def clean_password(self):
+    #     pwd = self.cleaned_data.get('password')
+    #     return md5(pwd)
 
 def login(request):
     if request.method =='GET':
@@ -24,4 +32,3 @@ def login(request):
         request.session["info"] = {'id': user_object.id}
         #return redirect(请假网页)
     return render(request,'login.html',{'form':form})
-
