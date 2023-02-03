@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from django.http import JsonResponse
 from login import models
 
@@ -17,6 +17,6 @@ def user_login(request):
     else:
         date_msg = "密码输入错误"
         date_code = 1
-    date = {'flag': date_code, 'msg': date_msg}
+    date = {'code': date_code, 'msg': date_msg}
 
     return JsonResponse({'request': date})
