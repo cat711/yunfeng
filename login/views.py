@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from yunfeng.utils.encrypt import md5
 from login import models
 
 def user_login(request):
