@@ -1,5 +1,5 @@
 from leave.models import LeaveInf
-from firstapp.models import UserInfo
+from login.models import UserInfo
 import datetime as dt
 from django.db.models import Count
 from django.http import HttpResponse, JsonResponse
@@ -8,8 +8,7 @@ from django.http import HttpResponse, JsonResponse
 
 def rank_show(request):
     uuid = request.session['id']
-    if uuid == 123456:
-        '''账号'''
+    if uuid == 'admin_id':
         try:
             if request.method == 'GET':
                 s_date = request.GET.get('s_date')

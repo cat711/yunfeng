@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'leave',
     'adjust',
     'ranking',
+    'register',
+    'info_integrate',
 ]
 
 MIDDLEWARE = [
