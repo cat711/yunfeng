@@ -1,5 +1,5 @@
 from django.db import models
-from firstapp.models import UserInfo
+from login.models import UserInfo
 # Create your models here.
 
 

@@ -3,20 +3,20 @@ from django.http import JsonResponse
 from login import models
 
 def user_login(request):
-    id = request.POST.get('id')  # 用户名
+    uid = request.POST.get('id')  # 用户名
     password = request.POST.get('password')  # 密码
     try:
-        user = models.UserInfo.objects.get(id=id)
+        user = models.UserInfo.objects.get(id=uid)
     except:
-        date = {'code': 1, "msg": "用户名错误"}
-        return JsonResponse({'request': date})
+        data = {'code': 1, "msg": "用户名错误"}
+        return JsonResponse({'request': data})
     if password == user.password:
-        date_msg = "登陆成功"
-        date_code = 0
+        data_msg = "登陆成功"
+        data_code = 0
         request.session['id'] = user.id
     else:
-        date_msg = "密码输入错误"
-        date_code = 1
-    date = {'code': date_code, 'msg': date_msg}
+        data_msg = "密码输入错误"
+        data_code = 1
+    data = {'code': data_code, 'msg': data_msg}
 
-    return JsonResponse({'request': date})
+    return JsonResponse({'request': data})

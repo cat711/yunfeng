@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'adjust',
     'ranking',
     'admin_login',
+    'register',
+    'info_integrate',
 ]
 
 MIDDLEWARE = [
