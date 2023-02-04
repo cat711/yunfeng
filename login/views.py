@@ -1,6 +1,7 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render, HttpResponse
 from django.http import JsonResponse
 from login import models
+
 
 def user_login(request):
     uid = request.POST.get('id')  # 用户名

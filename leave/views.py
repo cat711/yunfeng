@@ -10,7 +10,8 @@ import datetime as dt
 def create_leave(request):
     try:
         if request.method == 'POST':
-            uid = request.POST.get('id')
+            # uid = request.POST.get('id')
+            uid = request.session['id']
             date = request.POST.get('date')
             time = request.POST.get('time')
             reason = request.POST.get('reason')
@@ -20,14 +21,13 @@ def create_leave(request):
     except:
         return HttpResponse(json.dumps({'result': '0'}))
 
-    # 信息提交
 
-
-def user_exit(request):
-    del request.session['uu_id']
+def user_exit(request):  # 未使用
+    del request.session['id']
     return HttpResponse('退出成功')
 
 
+# 请假信息显示
 def leave_show(request):
     try:
         if request.method == 'GET':

@@ -8,15 +8,16 @@ import datetime as dt
 
 
 # 新请假
+# 调研学方法
 def create_adjust(request):
     try:
         if request.method == 'POST':
             uid = request.session['id']
-            day = request.POST.get('date')
-            ini_date = request.POST.get('ini_date')
-            be_day = request.POST.get('be_date')
-            adjust_time = request.POST.get('adjust_time')
-            be_adjust_time = request.POST.get('be_adjust_time')
+            day = request.POST.get('date')  # 调整后日期
+            ini_date = request.POST.get('ini_date')  # 发起日期
+            be_day = request.POST.get('be_date')  # 被调整日期
+            adjust_time = request.POST.get('adjust_time')  # 调整后时间
+            be_adjust_time = request.POST.get('be_adjust_time')  # 被调整时间
             reason = request.POST.get('reason')
         AdjustInf.objects.create(user_id=uid, day=day, be_day=be_day, ini_day=ini_date, adjust_time=adjust_time,
                                  be_adjust_time=be_adjust_time, reason=reason)
@@ -40,39 +41,19 @@ def user_exit(request):
     return HttpResponse('退出成功')
 
 
-# def leave_show(request):
-#     try:
-#         if request.method == 'GET':
-#             s_date = request.GET.get('s_date')
-#             e_date = request.GET.get('e_date')
-#             uuid = request.session['id']
-#             date1 = dt.datetime.strptime(s_date, '%Y-%m-%d').date()
-#             date2 = dt.datetime.strptime(e_date, '%Y-%m-%d').date()
-#             re_inf = {}
-#             users = LeaveInf.objects.filter(user_id=uuid, ini_day__gte=date1, ini_day__lte=date2).order_by(
-#                 'ini_day').values('ini_day', 'day', 'time', 'reason')
-#             re_inf["data"] = list(users)
-#             re_inf['counts'] = len(re_inf['data'])
-#         return JsonResponse(re_inf)
-#     except:
-#         return HttpResponse("加载失败")
 def adjust_show(request):
     try:
         if request.method == 'GET':
-            # s_date = request.GET.get('s_date')
-            # e_date = request.GET.get('e_date')
-            # uuid = request.session['id']
-            s_date = '2023-2-4'
-            e_date = '2023-3-4'
-            uuid = 2022007184
-            date1 = dt.datetime.strptime(s_date, '%Y-%m-%d').date()
-            date2 = dt.datetime.strptime(e_date, '%Y-%m-%d').date()
+            s_date = request.GET.get('s_date')  # 周一时间
+            e_date = request.GET.get('e_date')  # 周日时间
+            uuid = request.session['id']  # session
+            date1 = dt.datetime.strptime(s_date, '%Y-%m-%d').date()  # 时间格式转化
+            date2 = dt.datetime.strptime(e_date, '%Y-%m-%d').date()  # 时间格式转化
             re_inf = {}
             users = AdjustInf.objects.filter(user_id=uuid, ini_day__gte=date1, ini_day__lte=date2).order_by(
                 'ini_day').values('day', 'ini_day', 'adjust_time', 'be_day', 'be_adjust_time', 'reason')
             re_inf["data"] = list(users)
             re_inf['counts'] = len(re_inf['data'])
-            print(re_inf)
         return JsonResponse(re_inf)
     except:
         return HttpResponse("加载失败")
