@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'leave',
     'adjust',
     'ranking',
+    'admin_login',
 ]
 
 MIDDLEWARE = [
