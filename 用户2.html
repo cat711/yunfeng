@@ -17,7 +17,7 @@
             position: relative;
             width: 100%;
             height: 100%;
-            background-color: aqua;
+            background-color: #B0B0B0;
         }
 
         body,
@@ -33,7 +33,8 @@
             width: 90px;
             height: 70px;
             background-color: aliceblue;
-
+            text-align: center;
+            line-height: 70px;
         }
 
         .section_One {
@@ -41,14 +42,18 @@
             top: 80px;
             right: 65px;
             width: 390px;
-            height: 470px;
-            background-color: blue;
+            height: 450px;
+               background-color:#D4D4D4;
+            margin-top: 70px;
+            text-align: center;
         }
 
         .title {
             width: 365px;
             height: 100px;
-            background-color: chartreuse;
+             background-color: #D4D4D4;
+            line-height: 100px;
+            font-size: 30px;
         }
 
         .id,
@@ -59,27 +64,35 @@
         .more {
             display: flex;
             width: 300px;
-            height: 30px;
+            height: 20px;
             margin: auto;
-            background-color: coral;
+            /* background-color: coral; */
             margin-bottom: 25px;
         }
 
         .name div {
             width: 150px;
             height: 30px;
-            background-color: cornflowerblue;
+            background-color: #D4D4D4;
         }
 
         .btn {
+            position: absolute;
+            right:38%;
+            bottom:30px;
             width: 90px;
-            height: 25px;
-            background-color: cornflowerblue;
+            height: 20px;
+            background-color: #438BF6;
             margin: auto;
+            font-size: 15px;
+            text-align: center;
+            line-height: 20px;
+           color: white;
+           /* margin-bottom: 20px; */
         }
 
         .more {
-            position: relative;
+            /* position: relative; */
             display: flex;
             flex-direction: column;
         }
@@ -89,8 +102,8 @@
             top: 20px;
             width: 300px;
             height: 10px;
-            background-color: pink;
-            font-size: 8px;
+            /* background-color: pink; */
+            font-size: 4px;
             line-height: 12px;
         }
     </style>
@@ -112,19 +125,29 @@
                 <div><input type="text" placeholder="方向:" size="15"><br></div>
             </div>
             <div class="age"><input type="text" placeholder="期数:" size="40"><br></div>
-            <div class="ser"><input type="password" placeholder="密码:" size="40"><br></div>
+            <div class="ser"> <input type="password" id="pw" name="passwd" placeholder="请输入密码" size="40" onkeyup="checkpassword()"></div>
             <div class="more">
-                <input type="password" placeholder="确认密码:" size="40"><br>
-                <div class="err">
-                    <img src="https://chibaoshaitaiyang-1316184616.cos.ap-beijing.myqcloud.com/%E6%84%9F%E5%8F%B9%E5%8F%B7%20%281%29.png"
-                        alt="" width="10px" height="10px">
-                    输入密码不一致
-                </div>
+                <input type="password" id="repw" name="repasswd" placeholder="请再次输入密码" onkeyup="checkpassword()">
             </div>
-
+            <span id="tishi" style=" display:block;margin-left:-136px; margin-top:-27px;"></span>
             <div class="btn">立即注册</div>
         </div>
     </div>
+<script type="text/javascript">
+    function checkpassword() {
+        var password = document.getElementById("pw").value;
+        var repassword = document.getElementById("repw").value;
+
+        if (password == repassword) {
+            document.getElementById("tishi").innerHTML = "<font color='green'>两次密码输入一致</font>";
+            document.getElementById("submit").disabled = false;
+
+        } else {
+            document.getElementById("tishi").innerHTML = "<font color='red'>两次输入密码不一致!</font>";
+            document.getElementById("submit").disabled = true;
+        }
+    }
+</script>
 </body>
 
 </html>
