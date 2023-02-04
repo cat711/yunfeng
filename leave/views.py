@@ -2,7 +2,7 @@ from django.shortcuts import render
 import json
 from django.http import HttpResponse, JsonResponse
 from leave.models import LeaveInf
-from firstapp.models import UserInfo
+from login.models import UserInfo
 import datetime as dt
 
 
@@ -21,18 +21,6 @@ def create_leave(request):
         return HttpResponse(json.dumps({'result': '0'}))
 
     # 信息提交
-
-
-
-
-def create_user(request):
-    uid = 2022007184
-    name = '杨晨旭'
-    num = '七期'
-    direction = '人工智能'
-    pw = 'ycx666'
-    UserInfo.objects.create(id=uid, user_name=name, phase_num=num, direction=direction, password=pw)
-    return HttpResponse('创建成功')
 
 
 def user_exit(request):

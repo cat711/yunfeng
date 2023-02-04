@@ -11,7 +11,7 @@ import datetime as dt
 def create_adjust(request):
     try:
         if request.method == 'POST':
-            uid = request.POST.get('id')
+            uid = request.session['id']
             day = request.POST.get('date')
             ini_date = request.POST.get('ini_date')
             be_day = request.POST.get('be_date')
