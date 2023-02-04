@@ -1,5 +1,5 @@
 from leave.models import LeaveInf
-from firstapp.models import UserInfo
+from register.models import UserInfo
 import datetime as dt
 from django.db.models import Count
 from django.http import HttpResponse, JsonResponse

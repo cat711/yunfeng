@@ -2,7 +2,7 @@ from django.shortcuts import render
 import json
 from django.http import HttpResponse, JsonResponse
 from leave.models import LeaveInf
-from firstapp.models import UserInfo
+from register.models import UserInfo
 import datetime as dt
 
 

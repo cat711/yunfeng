@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from firstapp.models import UserInfo, YunDingInfo
+from register.models import UserInfo, YunDingInfo
 from django import forms
 from django.contrib import messages
 

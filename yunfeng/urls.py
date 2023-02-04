@@ -28,7 +28,7 @@ urlpatterns = [
 
 
     path('', views.hello),
-    path('first/', include('firstapp.urls')),
+    path('first/', include('register.urls')),
     path('leave/', include('leave.urls')),
     path('adjust/', include('adjust.urls')),
     path('rank/', include('ranking.urls'))

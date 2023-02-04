@@ -1,13 +1,13 @@
 from django.db import models
-
+from register.models import UserInfo
 
 # Create your models here.
 class LeaveInfo(models.Model):
-    ini_day = models.DateField('ini_day')
-    day = models.DateField('day')
+    ini_day = models.DateField('发起时间')
+    day = models.DateField('请假的日期')
     time = models.CharField('研学时间', max_length=100)
     reason = models.TextField('原因')
-    user_id = models.IntegerField('学号')
+    user = models.user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
 
 
 class UserInfo(models.Model):

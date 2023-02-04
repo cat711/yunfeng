@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'login.apps.LoginConfig',
-    'firstapp',
+    'register',
     'leave',
     'adjust',
     'ranking',
