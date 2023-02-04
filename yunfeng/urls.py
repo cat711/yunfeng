@@ -21,6 +21,19 @@ import register.views
 from . import views
 from django.urls import path, include
 
+
+from login import views
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+
+    path('login/',views.user_login),
+    path('admin_login/',include('admin_login.urls')),
+
+
+    path('', views.hello),
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login.views.user_login),
