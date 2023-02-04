@@ -95,6 +95,7 @@
             /* position: relative; */
             display: flex;
             flex-direction: column;
+            
         }
 
         .err {
@@ -105,6 +106,17 @@
             /* background-color: pink; */
             font-size: 4px;
             line-height: 12px;
+        }
+        .many{
+            font-size: 10px;
+            color:black;
+        }
+            .wrong{
+            color: red;
+        }
+
+        .right{
+            color: green;
         }
     </style>
 </head>
@@ -125,9 +137,12 @@
                 <div><input type="text" placeholder="方向:" size="15"><br></div>
             </div>
             <div class="age"><input type="text" placeholder="期数:" size="40"><br></div>
-            <div class="ser"> <input type="password" id="pw" name="passwd" placeholder="请输入密码" size="40" onkeyup="checkpassword()"></div>
+            <div class="ser"> <input type="password" class="ipt" name="passwd" placeholder="请输入密码" size="25px" onkeyup="checkpassword()">
+            <span class="many">请输入8-16位密码</span>
+            </div>
+           
             <div class="more">
-                <input type="password" id="repw" name="repasswd" placeholder="请再次输入密码" onkeyup="checkpassword()">
+                <input type="password" id="repw" name="repasswd" placeholder="请再次输入密码" size="25px" onkeyup="checkpassword()">
             </div>
             <span id="tishi" style=" display:block;margin-left:-136px; margin-top:-27px;"></span>
             <div class="btn">立即注册</div>
@@ -147,6 +162,22 @@
             document.getElementById("submit").disabled = true;
         }
     }
+        var many = document.querySelector('.many');
+         var ipt = document.querySelector('.ipt');
+          
+           ipt.onblur = function () {
+                if (ipt.value.length < 8|| ipt.value.length > 16) {
+                   many.className = 'many wrong';
+                   many.innerHTML = '你输入位数不在8~16之间';
+                
+                } else {
+                    many.className = 'many right';
+                    many.innerHTML = '格式正确';
+                 
+                }
+            }
+
+
 </script>
 </body>
 
