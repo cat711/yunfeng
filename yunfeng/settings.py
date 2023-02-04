@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'login.apps.LoginConfig',
+    'admin_login.apps.AdminLoginConfig',
 ]
 
 MIDDLEWARE = [
