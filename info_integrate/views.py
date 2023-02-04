@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 import datetime as dt
-from django.http import JsonResponse,HttpResponse
+from django.http import JsonResponse, HttpResponse
 from leave import models
 from login.models import UserInfo
 from adjust.models import AdjustInf
@@ -12,7 +12,7 @@ from adjust.models import AdjustInf
 def info_integrate(request):
     try:
         if request.method == 'GET':
-            if request.session['id'] == 'admin_id':
+            if request.session['id'] == 'admin_id':  # session验证
                 # now_day = datetime.date.today()
                 day = request.GET.get('s_date')
                 now_day = dt.datetime.strptime(day, '%Y-%m-%d').date()
@@ -30,7 +30,7 @@ def info_integrate(request):
                     leave['time'] = res_time
                     leave['reason'] = res_reason
                     res.append(leave)
-                #调研学显示
+                # 调研学显示
                 adjust_inf = AdjustInf.objects.filter(be_day=now_day).values_list()
                 print(adjust_inf)
                 resa = []

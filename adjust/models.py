@@ -2,7 +2,7 @@ from django.db import models
 from login.models import UserInfo
 
 
-# Create your models here.
+# 调整研学的表
 class AdjustInf(models.Model):
     user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
     ini_day = models.DateField('发起日期')
