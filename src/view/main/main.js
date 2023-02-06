@@ -22,13 +22,14 @@ user.onclick = function () {
     method: "POST",
     data: {
       password: `${password}`,
-      username: `${acn}`,
+      id: `${acn}`,
     },
   }).then(function (ist) {
-    console.log("登录报文", ist.data.data.user_id);
-    if (ist.data.data.user_id == "1") {
-      if (ist.data.data.password == "1") {
+    console.log("登录报文", ist.data.data.id);
+    if (ist.data.data.id == "1") {
+      if (ist.data.data.pw == "1") {
         confirm("成功");
+        window.location.href = "";
       } else {
         confirm("密码错误");
         //该函数为使用户的密码错误提示正常显示 即只在第一次显示，后面再点击也不再增加

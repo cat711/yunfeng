@@ -1,15 +1,16 @@
 #top {
   width: 100%;
   height: 75px;
-  background-color: #d9d9d9;
-  position: relative;
+  background-color: rgb(202, 206, 195, 0.1);
+  position: absolute;
+  z-index: 100;
 }
 .LogoClass1 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   position: absolute;
-  background-color: aqua;
-  top: 10px;
+  background-color: rgb(101, 138, 138, 0);
+  top: 0px;
   left: 25%;
   text-align: center;
   line-height: 2.5;
@@ -56,22 +57,23 @@ body {
   top: 0px;
   background-color: #b3b3b3;
   width: 100%;
-  height: 400px;
+  height: 500px;
 }
 .chartBack {
   position: relative;
   top: 0px;
   width: 100%;
   /* height: 700px; */
-  background-color: #d9d9d9;
+  background-color: white;
 }
 .charts {
   position: relative;
   top: 0px;
-  left: 34%;
-  width: 600px;
+  left: 28.5%;
+  width: 800px;
   /* height: 700px; */
-  background-color: #6e6d6d;
+  background-color: #9dd5eb;
+  background-image: linear-gradient(#c5e8fe, #81c7de);
   border-radius: 40px;
 }
 /* .chartTitle {
@@ -88,7 +90,7 @@ body {
   position: relative;
   height: auto;
   top: 0px;
-  left: 20px;
+  left: 16%;
 }
 #userList {
   position: relative;
@@ -112,7 +114,7 @@ body {
   position: relative;
   top: 100%;
   width: 100%;
-  height: auto;
+  height: 45px;
   background-color: white;
   text-align: center;
   font-size: 28px;

@@ -1,16 +1,16 @@
 #top {
   width: 100%;
   height: 75px;
-  background-color: #d9d9d9;
-  position: relative;
-  
+  background-color: #d9d9d900;
+  position: absolute;
+  z-index: 100;
 }
 .LogoClass1 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   position: absolute;
-  background-color: aqua;
-  top: 10px;
+  background-color: rgba(0, 255, 255, 0);
+  top: 0px;
   left: 25%;
   text-align: center;
   line-height: 2.5;
@@ -57,46 +57,45 @@ body {
   top: 0px;
   background-color: #b3b3b3;
   width: 100%;
-  height: 350px;
+  height: 500px;
 }
 .chartBack {
   position: relative;
   top: 0px;
   width: 100%;
   /* height: 700px; */
-  background-color: #d9d9d9;
+  background-color: #d9d9d900;
 }
-.titlebox{
-    position: relative;
-    height: 50px;
-    width: 30%;
-    top: 0px;
-    left: 15%;
-    font-size: 26px;
-    background-color: rgba(0, 0, 0, 0);
+.titlebox {
+  position: relative;
+  height: 50px;
+  width: 30%;
+  top: 0px;
+  left: 15%;
+  font-size: 26px;
+  background-color: rgba(0, 0, 0, 0);
 }
-.title{
-    position: relative;
+.title {
+  position: relative;
 }
-.histogram{
-position: relative;
-top: 0px;
-left: 20%;
-background-color: aquamarine;
-width: 25%;
-height: 400px;
-margin-right: 0px;
-display:inline-block;
-
+.histogram {
+  position: relative;
+  top: 0px;
+  left: 20%;
+  background-color: aquamarine;
+  width: 25%;
+  height: 400px;
+  margin-right: 0px;
+  display: inline-block;
 }
-.histogram.line{
-    left: 30%;
+.histogram.line {
+  left: 30%;
 }
 .bottom {
   position: relative;
   top: 100%;
   width: 100%;
-  height: auto;
+  height: 45px;
   background-color: white;
   text-align: center;
   font-size: 28px;
