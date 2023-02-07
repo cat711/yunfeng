@@ -1,7 +1,6 @@
 <!-- 创建人：李建霆
-     创建时间：2023-2-1
-     本页面是管理端的数据可视化
--->
+     创建时间：2023-1-31
+     本页面是 管理端的周次请假次数排行榜 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,35 +8,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>云顶请假系统管理端</title>
-    <link href="login_4.css" rel="stylesheet" type="text/css" />
+    <link href="admin_3.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body style="overflow-x: hidden">
     <!-- 页面头部 -->
     <header id="top">
       <img
-        src="../../../../public/login_4/白色透明 (1).png"
+        src="../../../../public/admin_3/白色透明 (1).png"
         class="LogoClass1"
       />
       <a class="nav" href="">主页</a>
-      <a class="nav first" href="../login_3/login_3.html">本周汇总</a>
+      <a class="nav first" href="">本周汇总</a>
       <div class="choice"></div>
-      <a class="nav second" href=""> 数据可视化</a>
+      <a class="nav second" href="../admin_4/admin_4.html">数据可视化</a>
       <a class="nav third" href="">设置</a>
     </header>
-    <!-- 页中 -->
+    <!-- 页面图片 -->
     <img
-      src="../../../../public/login_4/t016848c7c0cabd04cf.jpg"
       class="image"
+      src="../../../../public/admin_3/t016848c7c0cabd04cf.jpg"
     />
+    <!-- 排行榜 -->
     <div class="chartBack">
-      <div class="titlebox">
-        <div class="title">本周请假及调研学汇总图:</div>
+      <!-- <div class="chartTitle"></div> -->
+      <div class="charts">
+        <div class="userList">
+          <ol id="userList">
+            &nbsp&nbsp&nbsp&nbsp&nbsp本周请假次数排行榜:
+          </ol>
+        </div>
       </div>
-      <div class="histogram"></div>
-      <div class="histogram line"></div>
     </div>
+    <!-- 页尾 -->
     <div class="bottom"></div>
-    <script src="login_4.js"></script>
+    <script src="admin_3.js"></script>
   </body>
 </html>

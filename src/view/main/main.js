@@ -4,7 +4,7 @@ const alt = document.getElementById("alt");
 user.onclick = function () {
   var acn = document.getElementById("acn").value;
   var password = document.getElementById("PASS").value;
-
+ 
   console.log(acn);
   console.log(password);
 
