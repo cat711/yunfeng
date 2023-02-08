@@ -1,16 +1,15 @@
 const userList = document.getElementById("userList");
 
-var testdata2 = "测试次数:5次";
+
 //这个变量决定打印内容
-var testdata =
-  `${testdata2}` + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + `${testdata2}`;
+
 
 //打印排行榜
-for (let i = 0; i < 10; i++) {
-  var li = document.createElement("li");
-  userList.appendChild(li);
-  userList.children[userList.children.length - 1].innerHTML = `${testdata}`;
-}
+// for (let i = 0; i < 20; i++) {
+//   var li = document.createElement("li");
+//   userList.appendChild(li);
+//   userList.children[userList.children.length - 1].innerHTML = '111';
+// }
 // for (let i = 0; i < 10; i++) {
 //   var li = document.createElement("li");
 //   userList.appendChild(li);
@@ -48,28 +47,38 @@ function format(shijianchuo) {
 console.log(format(s_date));
 console.log(format(e_date));
 
-axios({
-  url: "",
-  method: "POST",
-  data: {
-    s_date: `${s_date}`,
-    e_date: `${e_date}`,
-  },
-});
+s_date = format(s_date);
+e_date = format(e_date)
+// axios({
+//   url: "",
+//   method: "POST",
+//   data: {
+//     s_date: `${s_date}`,
+//     e_date: `${e_date}`,
+//   },
+// });
 
 axios({
-  url: "",
+  url: "http://m7u12i6p.shenzhuo.vip:47038/rank/show/",
   method: "GET",
   params: {
     s_date: `${s_date}`,
     e_date: `${e_date}`,
   },
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
 }).then(function (List) {
-  console.log("报文", List);
-  for (var i = 0; i < List.data.data.records.length; i++) {
+  
+  
+  for (var i = 0; i < List.data.data.length; i++) {
+    console.log("报文", List.data.data[i]);
+    var testdata2 = List.data.data[i].name;
+    var testdata3 = "请假次数：" + List.data.data[i].count;
+    var testdata =
+      `${testdata2}` + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + `${testdata3}`;
     var li = document.createElement("li");
     userList.appendChild(li);
+   
     userList.children[userList.children.length - 1].innerHTML =
-      List.data.data.records[i];
+     `${testdata}`
   }
 });
