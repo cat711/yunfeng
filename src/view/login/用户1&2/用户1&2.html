@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="./用户1&2.css">
+</head>
+
+<body>
+    <div class="big_box">
+        <div class="header">
+            <img class="p"
+                src="https://chibaoshaitaiyang-1316184616.cos.ap-beijing.myqcloud.com/%E7%99%BD%E8%89%B2%E9%80%8F%E6%98%8E%20%281%29.png"
+                alt="">
+        </div>
+        <div class="words">
+            欢迎使用<br>
+        <div class="words2"><strong>云顶研学系统</strong></div>
+        </div>
+        
+        <div class="section_One">
+            <div class="title">欢迎注册</div>
+            <div class="id">
+                <input class="user_id"  type="text" placeholder="学号:" size="40"><br>
+            </div>
+            <div class="invite">
+                <input class="invitation_code"  type="text" placeholder="邀请码:" size="40px" height="5px"><br>
+            </div>
+            <div class="name">
+                <div><input class="user_name"  type="text" placeholder="姓名:" size="15"><br></div>
+                <div><input class="direction"  type="text" placeholder="方向:" size="15"><br></div>
+            </div>
+            <div class="age"><input class="phase_num"  type="text" placeholder="期数:" size="40"><br></div>
+            <div class="ser"> <input   type="password"  class="ipt"   name="passwd" placeholder="请输入密码" size="32px"
+                    onkeyup="checkpassword()">
+                <span class="many">(8-16位)</span>
+            </div>
+
+            <div class="more">
+                <input type="password" id="repw" name="repasswd" placeholder="请再次输入密码" size="32px"
+                    onkeyup="checkpassword()">
+            </div>
+            <span id="tishi" style=" display:block;margin-left:-200px; margin-top:-25px;"></span>
+            <button id="btn">立即注册</button>
+        </div>
+    </div>
+    <script>
+        function checkpassword() {
+            var password = document.getElementsByClassName(".ipt").value;
+            var repassword = document.getElementById("repw").value;
+
+            if (password == repassword) {
+                document.getElementById("tishi").innerHTML = "<font color='green'>两次密码输入一致</font>";
+                // document.getElementById("submit").disabled = false;
+
+            } else {
+                document.getElementById("tishi").innerHTML = "<font color='red'>两次输入密码不一致!</font>";
+                // document.getElementById("submit").disabled = true;
+            }
+        }
+        var many = document.querySelector('.many');
+        var ipt = document.querySelector('.ipt');
+
+        ipt.onblur = function () {
+            if (ipt.value.length < 8 || ipt.value.length > 16) {
+                many.className = 'many wrong';
+                many.innerHTML = '格式错误';
+
+            } else {
+                many.className = 'many right';
+                many.innerHTML = '格式正确';
+
+            }
+        }
+  
+     var btn = document.getElementById("btn");
+     var user_id =document.getElementsByClassName(".user_id").value;
+     var invitation_code = document.getElementsByClassName(".invitation_code").value;
+     var user_name = document.getElementsByClassName(".user_name").value;
+     var direction = document.getElementsByClassName(".direction").value;
+     var phase_num = document.getElementsByClassName(".phase_num").value;
+     var password=document.getElementsByClassName(".ipt").value;
+      btn.onclick = function() {
+            console.log("111")
+            axios({
+                url: "http://m7u12i6p.shenzhuo.vip:47038/register/",
+                method: "POST",
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {
+               user_id:'${user_id}',
+                invitation_code:'${invitation_code}',
+                user_name:'${user_name}',
+                direction:'${direction}',
+                phase_num:'${phase_num}',
+                password:'${password}'
+                }
+            })
+            .then(function(response){
+                console.log(response.data);
+            })
+            .catch(function (error){
+                console.log(error);
+            });
+              
+    
+}
+    </script>
+</body>
+
+</html>

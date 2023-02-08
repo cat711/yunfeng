@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="./管理1.css">
+</head>
+
+<body>
+    <div class="big_box">
+        <div class="header">
+            <img class="p"
+                src="https://chibaoshaitaiyang-1316184616.cos.ap-beijing.myqcloud.com/%E7%99%BD%E8%89%B2%E9%80%8F%E6%98%8E%20%281%29.png"
+                alt="">
+        </div>
+        <div class="words">
+            欢迎使用<br>
+            <div class="words2"><strong>云顶研学系统</strong></div>
+        </div>
+        <div class="section_One">
+            <div class="title">欢迎登录</div>
+            <div class="ipt">   
+                <div><input type="text" class="id" placeholder="学号:" size="40px"  style="height: 25px;"></div>
+                <div><input type="password" class="password" placeholder="密码:" size="40px" style="height:25px;"></div>
+            </div>
+            <span class="many" style=" display:block;margin-left:63px; margin-top:-30px;">(8-16位)</span>
+            <button class="btn">立&nbsp&nbsp&nbsp即&nbsp&nbsp&nbsp登&nbsp&nbsp&nbsp录</button>
+        </div>
+    </div>
+    <script>
+        var password=document.getElementsByClassName('.password');
+        var many=document.getElementsByClassName(".many");
+        password.onblur=function(){
+            if(password.value.length<8||password.value.length>16){
+                many.className='many wrong';
+                many.innerHTML='密码格式错误';
+            }
+            else{
+               many.className='many right';
+               many.innerHTML='密码格式正确';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

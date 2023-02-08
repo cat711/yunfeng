@@ -1,0 +1,149 @@
+*{
+margin: 0;
+padding:0;
+}
+.big_box {
+position: relative;
+width: 100%;
+height: 100%;
+background: url("https://chibaoshaitaiyang-1316184616.cos.ap-beijing.myqcloud.com/Rectangle%2064.png") no-repeat center
+center fixed;
+}
+
+body,
+html {
+height: 100%;
+overflow: hidden;
+}
+
+.header {
+position: absolute;
+left: 20px;
+top: 20px;
+width: 90px;
+height: 70px;
+/* background-color: pink; */
+text-align: center;
+line-height: 70px;
+
+}
+
+.section_One {
+position: absolute;
+top: 80px;
+right: 220px;
+width: 390px;
+height: 450px;
+border-radius: 10px;
+background-color: rgb(252, 251, 247, 0.55);
+margin-top: 70px;
+text-align: center;
+/* font-size: 30px; */
+}
+
+.words {
+position: absolute;
+left: 200px;
+top: 280px;
+width: 245px;
+height: 100px;
+/* background-color: pink; */
+font-size: 40px;
+font-family: "宋体";
+color: white;
+
+}
+.words2{
+font-size: 70px;
+width:500px;
+font-family: "宋体";
+
+}
+
+.title {
+width: 365px;
+height: 100px;
+/* background-color: #D4D4D4; */
+line-height: 100px;
+font-size: 30px;
+
+}
+
+.id,
+.invite,
+.name,
+.age,
+.ser,
+.more {
+display: flex;
+width: 300px;
+height: 20px;
+margin: auto;
+/* background-color: coral; */
+margin-bottom: 25px;
+}
+
+.name div {
+width: 150px;
+height: 30px;
+/* background-color: #D4D4D4; */
+}
+
+
+#btn {
+position: absolute;
+bottom: 40px;
+left: 38%;
+width: 90px;
+height: 25px;
+background-color: #438BF6;
+margin: auto;
+font-size: 15px;
+text-align: center;
+line-height: 20px;
+color: white;
+border: transparent;
+
+}
+
+.more {
+/* position: relative; */
+display: flex;
+flex-direction: column;
+}
+
+.p {
+width: 150px;
+height: 150px;
+margin-top: -30px;
+
+}
+
+.err {
+position: absolute;
+top: 20px;
+width: 300px;
+height: 10px;
+/* background-color: pink; */
+font-size: 4px;
+line-height: 12px;
+}
+
+.many {
+font-size: 10px;
+color: black;
+}
+
+.wrong {
+color: red;
+
+}
+
+.right {
+color: green;
+
+}
+
+#tishi {
+font-size: 10px;
+}
