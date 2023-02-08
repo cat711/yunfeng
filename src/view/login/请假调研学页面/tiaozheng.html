@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请假系统</title>
+    <link rel="stylesheet" href="all.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="top">
+            <div class="logo"><img src="https://220678.oss-cn-qingdao.aliyuncs.com/111.png" ></div>
+            <a href="qingjia.html" class="qingjia">请假</a>
+            <a href="tiaozheng.html" class="tiaozheng">调研学</a>
+        </div>
+        <div class="img"><img src="https://s1.ax1x.com/2023/02/08/pS25k3n.jpg"></div>
+        <div class="table">
+            <div class="php1"><img src="https://s1.ax1x.com/2023/02/08/pS25rvt.jpg"></div>
+            <div class="table1">
+                <span class="time"></span>
+                <span>调整时间：</span>
+                <!-- <label>原时间</label> -->
+                <input class="table4 date-picker" type="date" placeholder="  原时间："><select id="select2">
+                    <option value="1">第一大节</option>
+                    <option value="2">第二大节</option>
+                    <option value="3">第三大节</option>
+                    <option value="4">第四大节</option>
+                </select>
+                <!-- <label>调整后</label> -->
+                <input class="table7 date-picker" type="date" placeholder="  调整后时间："><select id="select3">
+                    <option value="1">第一大节</option>
+                    <option value="2">第二大节</option>
+                    <option value="3">第三大节</option>
+                    <option value="4">第四大节</option>
+                </select>
+    
+                <span class="span">调整理由：</span>
+                <textarea></textarea>
+                <button class="tijiao2">确认提交</button>
+            </div>
+            <div class="table2">
+                <span>本周调研学记录：</span>
+                <div class="jilu">
+                    <!-- <div class="jiatiao">
+                        <p class="p1">原时间：</p>
+                        <p class="p2">调整后：</p>
+                        <p class="p3">调整理由：</p>
+                        <div class="p5"></div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="php4"><img src="https://s1.ax1x.com/2023/02/08/pS25yKP.jpg"></div>
+        </div>
+        <div class="bottom1">
+            <span class="letter1 spe1">山西</span><span class="letter1">太原理工大学</span><span class="letter1">云顶书院</span>
+        </div>
+        <div class="bottom2">
+            <span class="letter2">控索云里云外开源社区，一起畅游技术之海</span>
+        </div>
+        <script type="text/javascript" src="tiaozheng.js"></script>
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请假系统</title>
+    <link rel="stylesheet" href="all.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="top">
+            <div class="logo"><img src="https://220678.oss-cn-qingdao.aliyuncs.com/111.png" ></div>
+            <a href="qingjia.html" class="qingjia">请假</a>
+            <a href="tiaozheng.html" class="tiaozheng">调研学</a>
+        </div>
+        <div class="img"><img src="https://s1.ax1x.com/2023/02/08/pS25aUe.jpg"></div>
+        <div class="table">
+            <div class="php1"><img src="https://s1.ax1x.com/2023/02/08/pS25rvt.jpg"></div>
+            <div class="table1">
+                <span class="time"></span>
+                <span>请假时间：</span>
+                <input type="date" class=" table6 date-picker" placeholder="  日期："><br>
+                <!-- <input type="text" calss="table5" placeholder="  节数：" list="listItem"> -->
+                <select id="select">
+                    <option value="1">第一大节</option>
+                    <option value="2">第二大节</option>
+                    <option value="3">第三大节</option>
+                    <option value="4">第四大节</option>
+                    <option value="5">方向会议</option>
+                </select> <br>
+                <span class="span">请假理由：</span>
+                <textarea></textarea>
+                <button class="tijiao">确认提交</button>
+                <div id="popLayer"></div>
+                <div id="popBox">
+                    <div class="content">
+
+                    </div>
+                    <div class="close">
+                        <button class="button1" οnclick="closeBox()">是</button><button class="button2"
+                            οnclick="closeBox()">否</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="table2">
+                <span>本周请假记录：</span>
+                <div class="jilu">
+                    <!-- <div class="jiatiao">
+                    <p class="p1">请假时间：</p>
+                    <p class="p2">节数：</p>
+                    <p calss="p3">请假理由：</p>
+                    <div class="p4"></div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="php4"><img src="https://s1.ax1x.com/2023/02/08/pS25yKP.jpg"></div>
+        </div>
+        <div class="bottom1">
+            <span class="letter1 spe1">山西</span><span class="letter1">太原理工大学</span><span class="letter1">云顶书院</span>
+        </div>
+        <div class="bottom2">
+            <span class="letter2">控索云里云外开源社区，一起畅游技术之海</span>
+        </div>
+        <script type="text/javascript" src="qingjia.js"></script>
+        
+        
+    
+    </div>
+</body>
+
+</html>
