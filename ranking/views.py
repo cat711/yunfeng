@@ -7,7 +7,8 @@ from django.http import HttpResponse, JsonResponse
 
 
 def rank_show(request):
-    uuid = request.session['id']
+    # uuid = request.session['id']
+    uuid = 'admin_id'
     if uuid == 'admin_id':
         try:
             if request.method == 'GET':  # 获取时间
@@ -29,8 +30,20 @@ def rank_show(request):
                     user_count = {'name': sort_list[i][0], 'count': sort_list[i][1]}
                     sort_data.append(user_count)
                 return_json = {'data': sort_data}
-                return JsonResponse(return_json)
+                result = JsonResponse(return_json)
+                result["Access-Control-Allow-Origin"] = "*"
+                result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+                result["Access-Control-Max-Age"] = "1000"
+                return result
         except:
-            return HttpResponse("加载失败")
+            result = HttpResponse("加载失败")
+            result["Access-Control-Allow-Origin"] = "*"
+            result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+            result["Access-Control-Max-Age"] = "1000"
+            return result
     else:
-        return HttpResponse("请先登录")
+        result = HttpResponse("请先登录")
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result

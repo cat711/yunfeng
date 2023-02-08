@@ -149,14 +149,13 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^https://\w+\.example\.com$",
 ]
 # 配置允许的请求方式
-CORS_ALLOW_METHODS = [
-    '*',  # * 表示允许全部请求头
+CORS_ALLOW_METHODS = [  # * 表示允许全部请求头
     'GET',
     'POST',
     'PUT',
     'PATCH',
     'DELETE',
-    'OPTIONS'
+    'OPTIONS',
 ]
 CORS_ALLOW_HEADERS = [
     "accept",
@@ -179,10 +178,12 @@ SESSION_COOKIE_SECURE = True
 
 # 设置set_cookie的samesite属性
 SESSION_COOKIE_SAMESITE = 'Lax'
-SESSION_COOKIE_SAMESITE = 'Strict'
 # 配置Django项目中哪些URL使用CORS进行跨域
 # 默认为 r'^.*$'，即匹配所有 URL
 
 # 以下案例为 /api/*** 均可进行跨域访问
 CORS_URLS_REGEX = r"^/api/.*$"
 
+SESSION_COOKIE_AGE = 1209600  # Session的cookie失效日期（2周）（数字为秒数）（默认）
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # 是否关闭浏览器使得Session过期（默认）
+SESSION_SAVE_EVERY_REQUEST = False

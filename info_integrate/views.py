@@ -12,8 +12,10 @@ from adjust.models import AdjustInf
 def info_integrate(request):
     try:
         if request.method == 'GET':
-            if request.session['id'] == 'admin_id':  # session验证
-                # now_day = datetime.date.today()
+            # if request.session['id'] == 'admin_id':  # session验证
+            # now_day = datetime.date.today()
+            i = 1
+            if i == 1:
                 day = request.GET.get('s_date')
                 now_day = dt.datetime.strptime(day, '%Y-%m-%d').date()
                 leave_inf = models.LeaveInf.objects.filter(day=now_day).values_list()
@@ -47,6 +49,14 @@ def info_integrate(request):
                     adjust['reason'] = res_reason
                     resa.append(adjust)
                 data = {'leave': res, 'adjust': resa}
-                return JsonResponse(data)
+                result = JsonResponse(data)
+                result["Access-Control-Allow-Origin"] = "*"
+                result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+                result["Access-Control-Max-Age"] = "1000"
+                return result
     except:
-        return HttpResponse("加载失败")
+        result = HttpResponse("加载失败")
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result

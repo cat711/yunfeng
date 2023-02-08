@@ -12,7 +12,8 @@ import datetime as dt
 def create_adjust(request):
     try:
         if request.method == 'POST':
-            uid = request.session['id']
+            # uid = request.session['id']
+            uid = 2022007184
             day = request.POST.get('date')  # 调整后日期
             ini_date = request.POST.get('ini_date')  # 发起日期
             be_day = request.POST.get('be_date')  # 被调整日期
@@ -21,9 +22,17 @@ def create_adjust(request):
             reason = request.POST.get('reason')
         AdjustInf.objects.create(user_id=uid, day=day, be_day=be_day, ini_day=ini_date, adjust_time=adjust_time,
                                  be_adjust_time=be_adjust_time, reason=reason)
-        return HttpResponse(json.dumps({'result': '1'}))
+        result = HttpResponse(json.dumps({'result': '1'}))
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
     except:
-        return HttpResponse(json.dumps({'result': '0'}))
+        result = HttpResponse(json.dumps({'result': '0'}))
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
 
     # 信息提交
 
@@ -33,7 +42,11 @@ def adjust_query(request):
     # uid = request.session['uu_id']
     uid = '2022007184'
     users = AdjustInf.objects.filter(user_id=uid)
-    return HttpResponse(users.values())
+    result = HttpResponse(users.values())
+    result["Access-Control-Allow-Origin"] = "*"
+    result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+    result["Access-Control-Max-Age"] = "1000"
+    return result
 
 
 def user_exit(request):
@@ -46,7 +59,8 @@ def adjust_show(request):
         if request.method == 'GET':
             s_date = request.GET.get('s_date')  # 周一时间
             e_date = request.GET.get('e_date')  # 周日时间
-            uuid = request.session['id']  # session
+            # uuid = request.session['id']  # session
+            uuid = 2022007184
             date1 = dt.datetime.strptime(s_date, '%Y-%m-%d').date()  # 时间格式转化
             date2 = dt.datetime.strptime(e_date, '%Y-%m-%d').date()  # 时间格式转化
             re_inf = {}
@@ -54,6 +68,10 @@ def adjust_show(request):
                 'ini_day').values('day', 'ini_day', 'adjust_time', 'be_day', 'be_adjust_time', 'reason')
             re_inf["data"] = list(users)
             re_inf['counts'] = len(re_inf['data'])
-        return JsonResponse(re_inf)
+            result = JsonResponse(re_inf)
+            result["Access-Control-Allow-Origin"] = "*"
+            result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+            result["Access-Control-Max-Age"] = "1000"
+            return result
     except:
         return HttpResponse("加载失败")

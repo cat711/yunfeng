@@ -9,7 +9,11 @@ def admin_login(request):
         admin = models.AdminInfo.objects.get(admin_id=admin_id)
     except:
         date = {'result': 1, "msg": "用户名错误"}
-        return JsonResponse({'request': date})
+        result = JsonResponse({'request': date})
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
     if password == admin.password:
         date_msg = "登陆成功"
         date_code = 0
@@ -19,4 +23,8 @@ def admin_login(request):
         date_code = 1
     date = {'result': date_code, 'msg': date_msg}
 
-    return JsonResponse({date})
+    result = JsonResponse({date})
+    result["Access-Control-Allow-Origin"] = "*"
+    result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+    result["Access-Control-Max-Age"] = "1000"
+    return result

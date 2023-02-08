@@ -9,15 +9,21 @@ def user_login(request):
     try:
         user = models.UserInfo.objects.get(id=uid)
     except:
-        data = {'code': 1, "msg": "用户名错误"}
-        return JsonResponse({'request': data})
+        result = JsonResponse({'id': 0, "pw": 0})
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
     if password == user.password:
-        data_msg = "登陆成功"
-        data_code = 0
         request.session['id'] = user.id
+        result = JsonResponse({'id': 1, "pw": 1})
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
     else:
-        data_msg = "密码输入错误"
-        data_code = 1
-    data = {'code': data_code, 'msg': data_msg}
-
-    return JsonResponse({'request': data})
+        result = JsonResponse({'id': 1, "pw": 0})
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result

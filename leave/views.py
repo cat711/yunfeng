@@ -11,19 +11,28 @@ def create_leave(request):
     try:
         if request.method == 'POST':
             # uid = request.POST.get('id')
-            uid = request.session['id']
+            # uid = request.session['id']
+            uid = 2022007184
             date = request.POST.get('date')
             time = request.POST.get('time')
             reason = request.POST.get('reason')
             ini_date = request.POST.get('ini_date')
         LeaveInf.objects.create(user_id=uid, day=date, time=time, reason=reason, ini_day=ini_date)
-        return HttpResponse(json.dumps({'result': '1'}))
+        result = HttpResponse(json.dumps({'result': '1'}))
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
     except:
-        return HttpResponse(json.dumps({'result': '0'}))
+        result = HttpResponse(json.dumps({'result': '0'}))
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
 
 
 def user_exit(request):  # 未使用
-    del request.session['id']
+
     return HttpResponse('退出成功')
 
 
@@ -33,7 +42,8 @@ def leave_show(request):
         if request.method == 'GET':
             s_date = request.GET.get('s_date')
             e_date = request.GET.get('e_date')
-            uuid = request.session['id']
+            # uuid = request.session['id']
+            uuid = 2022007184
             date1 = dt.datetime.strptime(s_date, '%Y-%m-%d').date()
             date2 = dt.datetime.strptime(e_date, '%Y-%m-%d').date()
             re_inf = {}
@@ -41,6 +51,14 @@ def leave_show(request):
                 'ini_day').values('ini_day', 'day', 'time', 'reason')
             re_inf["data"] = list(users)
             re_inf['counts'] = len(re_inf['data'])
-        return JsonResponse(re_inf)
+            result = JsonResponse(re_inf)
+            result["Access-Control-Allow-Origin"] = "*"
+            result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+            result["Access-Control-Max-Age"] = "1000"
+            return result
     except:
-        return HttpResponse("加载失败")
+        result = HttpResponse("加载失败")
+        result["Access-Control-Allow-Origin"] = "*"
+        result["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+        result["Access-Control-Max-Age"] = "1000"
+        return result
