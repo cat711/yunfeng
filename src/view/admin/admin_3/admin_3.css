@@ -1,15 +1,16 @@
 #top {
   width: 100%;
   height: 75px;
-  background-color: #d9d9d9;
-  position: relative;
+  background-color: rgb(202, 206, 195, 0.1);
+  position: absolute;
+  z-index: 100;
 }
 .LogoClass1 {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   position: absolute;
-  background-color: aqua;
-  top: 10px;
+  background-color: rgb(101, 138, 138, 0);
+  top: 0px;
   left: 25%;
   text-align: center;
   line-height: 2.5;
@@ -29,7 +30,7 @@ body {
   width: 32px;
   height: 10px;
   font-size: 16px;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .nav.first {
@@ -63,16 +64,20 @@ body {
   top: 0px;
   width: 100%;
   /* height: 700px; */
-  background-color: #d9d9d9;
+  background-color: white;
+  
 }
 .charts {
   position: relative;
   top: 0px;
-  left: 34%;
-  width: 600px;
+  left: 30%;
+  width: 700px;
   /* height: 700px; */
-  background-color: #6e6d6d;
+  background-color: #9dd5eb;
+  background-image: linear-gradient(#c5e8fe, #81c7de);
   border-radius: 40px;
+  min-height: calc(70vh - 45px);
+  /* 计算页尾，使页尾始终在页面尾部 */
 }
 /* .chartTitle {
   position: absolute;
@@ -88,12 +93,12 @@ body {
   position: relative;
   height: auto;
   top: 0px;
-  left: 20px;
+  left: 16%;
 }
 #userList {
   position: relative;
   top: 0px;
-  left: 70px;
+  left: 60px;
   font-size: 26px;
   color: black;
   line-height: 2;
@@ -108,16 +113,68 @@ body {
     font-size: 26px;
     color: white;
 } */
-.bottom {
-  position: relative;
-  top: 100%;
+footer {
+  position: absolute;
+ bottom: 0pz;
   width: 100%;
-  height: auto;
-  background-color: white;
+  height: 45px;
+  background-color:rgb(67, 139, 246);
   text-align: center;
   font-size: 28px;
   /* z-index: 100; */
 }
-img {
-  vertical-align: bottom;
+body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+    min-height: calc(100vh - 80px);
+}
+.box {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  transform: rotate(45deg);
+}
+.box.f{
+  top: 250px;
+  left: 1450px;
+  transform: rotate(325deg);
+}
+.footer {
+
+    font-size: 20px;
+    color: white;
+    height: 45px;
+   
+    background-color: rgb(67, 139, 246);
+}
+.hit{
+  position: relative;
+  display:inline-table;
+  height: 40px;
+  top: 2px;
+  width:3px;
+  left: 50%;
+  background-color: white;
+}
+.text{
+  position: absolute;
+  width: 40% ;
+  left: 10%;
+  font-size: 20px;
+  text-align: center;
+  line-height: 2;
+ word-spacing: 80px;
+}
+.text.sss{
+  position: relative;
+  top: -45px;
+  left: 45%;  
+  width: 60%;
+  color: white;
+  z-index: 100;
 }

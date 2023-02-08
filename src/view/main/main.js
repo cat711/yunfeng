@@ -18,19 +18,21 @@ user.onclick = function () {
   }
 
   axios({
-    url: "",
+    url: "http://m7u12i6p.shenzhuo.vip:47038/login/",
     method: "POST",
     data: {
       password: `${password}`,
-      username: `${acn}`,
+      id: `${acn}`,
     },
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    // headers: { "Access-Control-Allow-Origin" :'*'},
   }).then(function (ist) {
-    console.log("登录报文", ist.data.data.user_id);
-    if (ist.data.data.user_id == "1") {
-      if (ist.data.data.password == "1") {
+    console.log("登录报文", ist);
+    if (ist.data.id == "1") {
+      if (ist.data.pw == "1") {
         confirm("成功");
+        window.location.href = "";
       } else {
-        confirm("密码错误");
         //该函数为使用户的密码错误提示正常显示 即只在第一次显示，后面再点击也不再增加
         var alt = document.getElementById("alt"); //获取当前页面的alt存在情况
 
